@@ -34,14 +34,12 @@ int main(int argc, char *argv[])
   /* Print results */
   for(y=0; y<N; y++)
   {
-    const char *space = "";
     for(x=0; x<N; x++)
     {
-      sprintf(str, "%s%lli", space, R[y][x]);
+      sprintf(str, "%lli", R[y][x]);
       write(1, str, strlen(str));
-      space = " ";
     }
-    write(1, "\n", 1);
+    write(1, "\n", strlen("\n"));
   }     
       
   exit(0);
