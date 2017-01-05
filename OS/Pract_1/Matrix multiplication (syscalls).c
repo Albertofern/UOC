@@ -10,11 +10,11 @@ long long int A[N][N],B[N][N],R[N][N];
 	
 int main(int argc, char *argv[])
 {
-	int x,y,z;
-	char str[100];
+  int x,y,z;
+  char str[100];
 
-	/* Matrix initialization */
-	for(y=0; y<N; y++) 
+  /* Matrix initialization */
+  for(y=0; y<N; y++) 
 		for(x=0; x<N; x++)
 		{
 			A[y][x]=x;
