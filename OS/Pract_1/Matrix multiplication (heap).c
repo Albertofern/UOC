@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+/* Size of the matrix */
 #define N 1000
 	
 int main(int argc, char *argv[])
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
     A[i] = (long long int *)malloc(N*sizeof(long long int));
     if(A[i] == NULL)
       exit(1);
-	}
+  }
 
   B = (long long int**) malloc(N*sizeof(long long int *));
   if(B == NULL)
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
     B[i] = (long long int *)malloc(N*sizeof(long long int));
     if(B[i] == NULL)
       exit(1);
-	}
+  }
 
   R = (long long int**) malloc(N*sizeof(long long int *));
   if(R == NULL)
@@ -41,36 +42,35 @@ int main(int argc, char *argv[])
     R[i] = (long long int *)malloc(N*sizeof(long long int));
     if(R[i] == NULL)
       exit(1);
-	}
+  }
 
-	/* Matrix initialization */
-	for(y=0; y<N; y++) 
-		for(x=0; x<N; x++)
-		{
-			A[y][x] = x;
-			B[y][x] = y;
-			R[y][x] = 0;	
-		}
+  /* Matrix initialization */
+  for(y=0; y<N; y++) 
+    for(x=0; x<N; x++)
+    {
+      A[y][x] = x;
+      B[y][x] = y;
+      R[y][x] = 0;	
+    }
 		
-	/* Matrix multiplication */
-	for(y=0; y<N; y++)
-		for(z=0; z<N; z++) 
-			for(x=0; x<N; x++) 
-			{
-				R[y][x] += A[y][z] * B[z][x];
-			}
+  /* Matrix multiplication */
+  for(y=0; y<N; y++)
+    for(z=0; z<N; z++) 
+      for(x=0; x<N; x++) 
+      {
+	R[y][x] += A[y][z] * B[z][x];
+      }
 
-
-	/* Free memory */
-	for(i=0; i<N; i++)
+  /* Free memory */
+  for(i=0; i<N; i++)
   {
-		free(A[i]);
-		free(B[i]);
-		free(R[i]);
-	}
-	free(A);
-	free(B);
-	free(R);
+    free(A[i]);
+    free(B[i]);
+    free(R[i]);
+  }
+  free(A);
+  free(B);
+  free(R);
 
-	exit(0);
+  exit(0);
 }
