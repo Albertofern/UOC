@@ -28,5 +28,5 @@ int main(int argc, char *argv[])
         R[y][x]+= A[y][z] * B[z][x];	
       }       
 
-   exit(0);
+  exit(0);
 }
