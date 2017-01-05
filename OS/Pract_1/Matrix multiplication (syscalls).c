@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
   for(y=0; y<N; y++) 
 		for(x=0; x<N; x++)
 		{
-			A[y][x]=x;
+		  A[y][x]=x;
 			B[y][x]=y;
 			R[y][x]=0;	
 		}
