@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
   for(y=0; y<N; y++) 
     for(x=0; x<N; x++)
     {
-      A[y][x]=x;
-      B[y][x]=y;
-      R[y][x]=0;	
+      A[y][x] = x;
+      B[y][x] = y;
+      R[y][x] = 0;	
     }
 		
   /* Matrix multiplication */
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     for(z=0; z<N; z++) 
       for(x=0; x<N; x++) 
       {
-        R[y][x]+= A[y][z] * B[z][x];	
+        R[y][x] += A[y][z] * B[z][x];	
       }       
 
   exit(0);
