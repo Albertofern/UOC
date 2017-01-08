@@ -9,11 +9,11 @@
 #include <sys/times.h>
 #include <sys/wait.h>
 
-#define NAMED_PIPE		"input" /* Named pipe used to communicate with the server */
-#define MAX_DELAY		5       /* Max delay (seconds) */
-#define MAX_REQUEST_SIZE	80      /* Max size of the request (bytes) */
-#define WORKING_DIRECTORY 	"working"       /* Server's working directory */
-#define MAX_CONCURRENT		5       /* Max number of concurrent processes */
+#define NAMED_PIPE          "input"     /* Named pipe used to communicate with the server */
+#define MAX_DELAY           5           /* Max delay (seconds) */
+#define MAX_REQUEST_SIZE    80          /* Max size of the request (bytes) */
+#define WORKING_DIRECTORY   "working"   /* Server's working directory */
+#define MAX_CONCURRENT      5           /* Max number of concurrent processes */
 
 /* Color codes */
 char *color_red = "\033[01;31m";
@@ -297,25 +297,25 @@ check_and_serve_exit_request (t_string request)
   ret = sscanf (request, "%s %s %s %s\n", task, par1, par2, foo);
 
   if ((strcmp (task, "exit") == 0) && (ret == 1))
+  {
+    t_string s;
+    int pid;
+
+    while ((pid = wait (NULL)) > 0)
     {
-      t_string s;
-      int pid;
-
-      while ((pid = wait (NULL)) > 0)
-        {
-          num_servers--;
-          sprintf (s, "%s[%d] child ended %d (%d servers)\n%s", color_yellow,
-                   getpid (), pid, num_servers, color_end);
-          if (write (1, s, strlen (s)) == -1)
-            panic ("write");
-        }
-
-      sprintf (s, "%s[%d] exiting main server\n%s", color_yellow, getpid (),
-               color_end);
+      num_servers--;
+      sprintf (s, "%s[%d] child ended %d (%d servers)\n%s", color_yellow,
+               getpid (), pid, num_servers, color_end);
       if (write (1, s, strlen (s)) == -1)
         panic ("write");
-      exit (0);
     }
+
+    sprintf (s, "%s[%d] exiting main server\n%s", color_yellow, getpid (),
+             color_end);
+    if (write (1, s, strlen (s)) == -1)
+      panic ("write");
+    exit (0);
+  }
 }
 
 int
@@ -326,23 +326,25 @@ main (int argc, char *argv[])
 
   /* Argument check */
   switch (argc)
-    {
+  {
     case 1:
       break;
+      
     case 2:
       if (strcmp (argv[1], "-c") == 0)
-        {
-          t_string s;
+      {
+        t_string s;
 
-          concurrent = 1;
-          sprintf (s, "%s[%d] Concurrent server\n%s",
-                   color_yellow, getpid (), color_end);
-          if (write (1, s, strlen (s)) == -1)
-            panic ("write");
-        }
+        concurrent = 1;
+        sprintf (s, "%s[%d] Concurrent server\n%s",
+                 color_yellow, getpid (), color_end);
+        if (write (1, s, strlen (s)) == -1)
+          panic ("write");
+      }
       else
         panic ("wrong arguments");
       break;
+      
     default:
       panic ("wrong arguments");
     }
@@ -351,44 +353,47 @@ main (int argc, char *argv[])
   fd = init ();
 
   while (1)
+  {
+    t_string request, s;
+    int pid;
+
+    read_request (fd, request);
+
+    if (concurrent)
     {
-      t_string request, s;
-      int pid;
+      check_and_serve_exit_request (request);
 
-      read_request (fd, request);
+      switch (pid = fork ())
+      {
+        case -1:
+          panic ("fork");
+  
+        case 0:
+          srand (getpid ());
+          /* Serve */
+          serve_request (request);
+          exit (0);
+        
+        default:
+          num_servers++;
+          sprintf (s, "%s[%d] child created %d (%d servers)\n%s",
+                   color_yellow, getpid (), pid, num_servers, color_end);
+          if (write (1, s, strlen (s)) == -1)
+            panic ("write");
 
-      if (concurrent)
-        {
-          check_and_serve_exit_request(request);
-
-          switch (pid = fork ())
-            {
-            case -1:
-              panic ("fork");
-            case 0:
-              srand (getpid ());
-              /* Serve */
-              serve_request (request);
-              exit (0);
-            default:
-              num_servers++;
-              sprintf (s, "%s[%d] child created %d (%d servers)\n%s",
-                       color_yellow, getpid (), pid, num_servers, color_end);
-              if (write (1, s, strlen (s)) == -1)
-                panic ("write");
-
-              while ((pid = waitpid (-1, NULL, WNOHANG)) > 0)
-                {
-                  num_servers--;
-                  sprintf (s, "%s[%d] child ended %d (%d servers)\n%s", color_yellow,
-                           getpid (), pid, num_servers, color_end);
-                  if (write (1, s, strlen (s)) == -1)
-                    panic ("write");
-                }
-            }
-        }
-      else
-        serve_request (request);
+          while ((pid = waitpid (-1, NULL, WNOHANG)) > 0)
+          {
+            num_servers--;
+            sprintf (s, "%s[%d] child ended %d (%d servers)\n%s", color_yellow,
+                     getpid (), pid, num_servers, color_end);
+            if (write (1, s, strlen (s)) == -1)
+              panic ("write");
+          }
+      }
     }
+    else
+      serve_request (request);
+  }
+  
   return 0;
 }
