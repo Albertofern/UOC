@@ -54,9 +54,8 @@ delay ()
 int
 do_copy (char *src, char *dst)
 {
-  int fdin, fdout, n, ret = 0;
-  char c;
   t_string s;
+  int pid, n;
 
   sprintf (s, "%s[%d] copy %s %s\n%s", color_green, getpid (), src, dst,
            color_end);
@@ -65,29 +64,25 @@ do_copy (char *src, char *dst)
 
   delay ();
 
-  fdin = open (src, O_RDONLY);
-  if (fdin < 0)
-    return (-1);
-  fdout = open (dst, O_WRONLY | O_TRUNC | O_CREAT, 0600);
-  if (fdout < 0)
-    {
-      close (fdin);
-      return (-1);
-    }
+  switch (pid = fork ())
+  {
+    case -1:
+      /* In case of error, finish the process */
+      panic ("Fork error");
 
-  while ((n = read (fdin, &c, 1)) > 0)
-    if (write (fdout, &c, 1) < 0)
-      {
-        close (fdin);
-        close (fdout);
-        return (-1);
-      }
+    case 0:
+      execlp ("cp", "cp", src, dst, NULL);
+      /* In case of error, finish the process */
+      panic ("Exec cp error");
 
-  if (n == -1)
-    ret = -1;
-  close (fdin);
-  close (fdout);
-  return (ret);
+    default:
+      wait (&n);
+  }
+
+  if (WEXITSTATUS (st) == 0)
+    return 0;
+  else
+    return -1;
 }
 
 /* Implements rename request */
@@ -95,6 +90,7 @@ int
 do_rename (char *old, char *new)
 {
   t_string s;
+  int pid, n;
 
   sprintf (s, "%s[%d] rename %s %s\n%s", color_green, getpid (), old, new,
            color_end);
@@ -103,11 +99,24 @@ do_rename (char *old, char *new)
 
   delay ();
 
-  if (link (old, new) == -1)
-    return (-1);
-  if (unlink (old) == -1)
-    return (-1);
-  return (0);
+  switch (pid = fork ()) {
+    case -1:
+      /* In case of error, finish the process */
+      panic ("Fork error");
+
+    case 0:
+      execlp ("mv", "mv", old, new, NULL);
+      /* In case of error, finish the process */
+      panic ("Exec mv error");
+
+    default:
+      wait(&n);
+  }
+
+  if (WEXITSTATUS (st) == 0)
+    return 0;
+  else
+    return -1;
 }
 
 /* Implements numfiles request */
