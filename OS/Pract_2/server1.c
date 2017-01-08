@@ -9,11 +9,11 @@
 #include <sys/times.h>
 #include <sys/wait.h>
 
-#define NAMED_PIPE		"input" /* Named pipe used to communicate with the server */
-#define MAX_DELAY		5       /* Max delay (seconds) */
-#define MAX_REQUEST_SIZE	80      /* Max size of the request (bytes) */
-#define WORKING_DIRECTORY 	"working"       /* Server's working directory */
-#define MAX_CONCURRENT		5       /* Max number of concurrent processes */
+#define NAMED_PIPE          "input"     /* Named pipe used to communicate with the server */
+#define MAX_DELAY           5           /* Max delay (seconds) */
+#define MAX_REQUEST_SIZE    80          /* Max size of the request (bytes) */
+#define WORKING_DIRECTORY   "working"   /* Server's working directory */
+#define MAX_CONCURRENT      5           /* Max number of concurrent processes */
 
 /* Color codes */
 char *color_red = "\033[01;31m";
@@ -54,9 +54,8 @@ delay ()
 int
 do_copy (char *src, char *dst)
 {
-  int fdin, fdout, n, ret = 0;
-  char c;
   t_string s;
+  int pid, n;
 
   sprintf (s, "%s[%d] copy %s %s\n%s", color_green, getpid (), src, dst,
            color_end);
@@ -65,29 +64,25 @@ do_copy (char *src, char *dst)
 
   delay ();
 
-  switch (fork()) {
+  switch (pid = fork ())
+  {
     case -1:
-      /* En caso de error el proceso acaba */
-      write(2, "Fork error\n", strlen("Fork error\n"));
-      write(2, s, strlen(s));
-      exit(1);
+      /* In case of error, finish the process */
+      panic ("Fork error");
 
     case 0:
-      execlp("cp", "cp", src, dst, NULL);
-      write(1, s, strlen(s));
-      /* Mata el proceso, ya que no desaparecerá por si mismo */
-      exit(1);
+      execlp ("cp", "cp", src, dst, NULL);
+      /* In case of error, finish the process */
+      panic ("Exec cp error");
 
     default:
-      wait(&n);
+      wait (&n);
   }
 
-  if (n==0){
+  if (WEXITSTATUS (st) == 0)
     return 0;
-  }
   else
     return -1;
-
 }
 
 /* Implements rename request */
@@ -95,6 +90,7 @@ int
 do_rename (char *old, char *new)
 {
   t_string s;
+  int pid, n;
 
   sprintf (s, "%s[%d] rename %s %s\n%s", color_green, getpid (), old, new,
            color_end);
@@ -103,26 +99,22 @@ do_rename (char *old, char *new)
 
   delay ();
 
-  switch (fork()) {
+  switch (pid = fork ()) {
     case -1:
-      /* En caso de error el proceso acaba */
-      write(2, "Fork error\n", strlen("Fork error\n"));
-      write(2, s, strlen(s));
-      exit(1);
+      /* In case of error, finish the process */
+      panic ("Fork error");
 
     case 0:
-      execlp("mv", "mv", old, new, NULL);
-      write(1, s, strlen(s));
-      /* Mata el proceso, ya que no desaparecerá por si mismo */
-      exit(1);
+      execlp ("mv", "mv", old, new, NULL);
+      /* In case of error, finish the process */
+      panic ("Exec mv error");
 
     default:
       wait(&n);
   }
 
-  if (n==0){
+  if (WEXITSTATUS (st) == 0)
     return 0;
-  }
   else
     return -1;
 }
