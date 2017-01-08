@@ -57,7 +57,7 @@ int
 do_copy (char *src, char *dst)
 {
   t_string s;
-  int pid, st;
+  int pid, n;
 
   sprintf (s, "%s[%d] copy %s %s\n%s", color_green, getpid (), src, dst,
            color_end);
@@ -67,20 +67,24 @@ do_copy (char *src, char *dst)
   delay ();
 
   switch (pid = fork ())
-    {
+  {
     case -1:
-      panic ("fork");
+      /* In case of error, finish the process */
+      panic ("Fork error");
+
     case 0:
       execlp ("cp", "cp", src, dst, NULL);
-      panic ("exec");
+      /* In case of error, finish the process */
+      panic ("Exec cp error");
+
     default:
-      wait (&st);
-    }
+      wait (&n);
+  }
 
   if (WEXITSTATUS (st) == 0)
-    return (0);
+    return 0;
   else
-    return (-1);
+    return -1;
 }
 
 /* Implements rename request */
@@ -88,7 +92,7 @@ int
 do_rename (char *old, char *new)
 {
   t_string s;
-  int pid, st;
+  int pid, n;
 
   sprintf (s, "%s[%d] rename %s %s\n%s", color_green, getpid (), old, new,
            color_end);
@@ -97,100 +101,88 @@ do_rename (char *old, char *new)
 
   delay ();
 
-  switch (pid = fork ())
-    {
+  switch (pid = fork ()) {
     case -1:
-      panic ("fork");
+      /* In case of error, finish the process */
+      panic ("Fork error");
+
     case 0:
       execlp ("mv", "mv", old, new, NULL);
-      panic ("exec");
+      /* In case of error, finish the process */
+      panic ("Exec mv error");
+
     default:
-      wait (&st);
-    }
+      wait(&n);
+  }
 
   if (WEXITSTATUS (st) == 0)
-    return (0);
+    return 0;
   else
-    return (-1);
+    return -1;
 }
-
-int tmpidx=0;
 
 /* Implements numfiles request */
 int
 do_numfiles (char *pattern)
 {
-  t_string s, tmp1, tmp2;
-  int pid1, pid2, st1, st2, n, ret, fd;
+  t_string s;
+  int p[2], p2[2];
+  int pid, st1, st2;
+  char buf[5];
 
-  sprintf (s, "%s[%d] numfiles %s\n%s", color_green,
+  sprintf (s, "%s[%d] numfiles %s \n%s", color_green,
            getpid (), pattern, color_end);
   if (write (1, s, strlen (s)) == -1)
     return -1;
 
   delay ();
 
-  sprintf(tmp1, "/tmp/tmp.%d", tmpidx++);
-  sprintf(tmp2, "/tmp/tmp.%d", tmpidx++);
+  if (pipe (p) < 0)
+    panic("pipe creation failed");
 
-  switch (pid1 = fork ())
-    {
+  if (pipe(p2) < 0)
+    panic("pipe2 creation failed");
+
+  /* Must return the number of file names that satisfy the pattern */
+  switch (pid = fork()) 
+  {
     case -1:
       panic ("fork");
-    case 0:
-      if (close (1) == -1)
-        panic ("close");
-      if (open(tmp1, O_WRONLY|O_TRUNC|O_CREAT, 0600) < 0)
-        panic ("open");
-      execlp ("ls", "ls", NULL);
-      panic ("exec");
-    default:
-      if (wait (&st1) == -1)
-        panic ("wait");
-    }
 
-  switch (pid2 = fork ())
-    {
-    case -1:
-      panic ("fork");
-    case 0:
-      if (close (0) == -1)
-        panic ("close");
-      if (open(tmp1, O_RDONLY) < 0)
-        panic ("open");
-      if (close (1) == -1)
-        panic ("close");
-      if (open(tmp2, O_WRONLY|O_TRUNC|O_CREAT, 0600) < 0)
-        panic ("open");
-      execlp ("grep", "grep", "-c", pattern, NULL);
-      panic ("exec");
-    default:
-      if (wait (&st2) == -1)
-        panic ("wait");
-    }
+    case 0:    /* child 1 */
+      dup2 (p[1], 1); /* this end of the pipe becomes the standard output */
+      close (p[0]);
+      execlp ("ls", "ls", (char *)0);
+      panic ("exec ls");
 
-  if ((fd = open(tmp2, O_RDONLY)) < 0)
-    panic ("open");
-  n = read (fd, s, sizeof (s));
-  if (n == -1)
-    panic ("read");
-
-  if (n==0) 
-    ret = 0;
-  else {
-    if (s[n - 1] != '\n')
-      panic ("unexpected read");
-
-    ret = atoi (s);
+    default:                 /* parent does nothing */
+      break;
   }
 
-  if (close(fd) < 0)
-    panic("close");
+  switch (pid = fork())
+  {
+    case -1:
+      panic("fork");
 
-//  unlink(tmp1);
-//  unlink(tmp2);
+    case 0:    /* child 2 */
+      dup2(p2[1], 1); /* this end of the pipe becomes the standard output */
+      close(p2[0]);
+      dup2(p[0], 0);
+      close(p[1]);
+      execlp ("grep", "grep", "-c", pattern, (char *)0);
+      panic ("exec grep");
 
-  return ret;
+    default:                 /* parent does nothing */
+      break;
+  }
+
+  close(p[0]);close(p[1]);    /* this is important! */
+  close(p2[1]);               /* this is important! */
+  read(p2[0], buf, 1);
+  close(p2[0]);
+  wait (&st1);
+  wait (&st2);
+  return atoi (buf);
 }
 
 /* Implements exit request */
