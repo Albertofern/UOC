@@ -9,11 +9,11 @@
 #include <sys/times.h>
 #include <sys/wait.h>
 
-#define NAMED_PIPE		      "input"     /* Named pipe used to communicate with the server */
-#define MAX_DELAY		        5           /* Max delay (seconds) */
-#define MAX_REQUEST_SIZE	  80          /* Max size of the request (bytes) */
-#define WORKING_DIRECTORY 	"working"   /* Server's working directory */
-#define MAX_CONCURRENT		  5           /* Max number of concurrent processes */
+#define NAMED_PIPE          "input"     /* Named pipe used to communicate with the server */
+#define MAX_DELAY           5           /* Max delay (seconds) */
+#define MAX_REQUEST_SIZE    80          /* Max size of the request (bytes) */
+#define WORKING_DIRECTORY   "working"   /* Server's working directory */
+#define MAX_CONCURRENT      5           /* Max number of concurrent processes */
 
 /* Color codes */
 char *color_red = "\033[01;31m";
