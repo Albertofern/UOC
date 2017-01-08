@@ -239,12 +239,12 @@ read_request (int fd, t_string request)
   int ret, i = -1;
 
   do
-    {
-      i++;
-      ret = read (fd, &request[i], 1);
-      if (ret <= 0)
-        panic ("read");
-    }
+  {
+    i++;
+    ret = read (fd, &request[i], 1);
+    if (ret <= 0)
+      panic ("read");
+  }
   while ((request[i] != '\n') && (i < MAX_REQUEST_SIZE));
 
   if (request[i] != '\n')
