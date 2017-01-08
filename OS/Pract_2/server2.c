@@ -9,11 +9,11 @@
 #include <sys/times.h>
 #include <sys/wait.h>
 
-#define NAMED_PIPE		"input" /* Named pipe used to communicate with the server */
-#define MAX_DELAY		5       /* Max delay (seconds) */
-#define MAX_REQUEST_SIZE	80      /* Max size of the request (bytes) */
-#define WORKING_DIRECTORY 	"working"       /* Server's working directory */
-#define MAX_CONCURRENT		5       /* Max number of concurrent processes */
+#define NAMED_PIPE          "input"     /* Named pipe used to communicate with the server */
+#define MAX_DELAY           5           /* Max delay (seconds) */
+#define MAX_REQUEST_SIZE    80          /* Max size of the request (bytes) */
+#define WORKING_DIRECTORY   "working"   /* Server's working directory */
+#define MAX_CONCURRENT      5           /* Max number of concurrent processes */
 
 /* Color codes */
 char *color_red = "\033[01;31m";
@@ -114,10 +114,10 @@ do_rename (char *old, char *new)
 int
 do_numfiles (char *pattern)
 {
-  int p[2], p2[2];
-  int st1, st2;
-  char ret, buf[5];
   t_string s;
+  int p[2], p2[2];
+  int pid, st1, st2;
+  char buf[5];
 
   sprintf (s, "%s[%d] numfiles %s \n%s", color_green,
            getpid (), pattern, color_end);
@@ -126,42 +126,32 @@ do_numfiles (char *pattern)
 
   delay ();
 
-  if (pipe(p) < 0) {
+  if (pipe (p) < 0)
     panic("pipe creation failed");
-    return (-1);
-    exit(1); }
 
-  if (pipe(p2) < 0) {
+  if (pipe(p2) < 0)
     panic("pipe2 creation failed");
-    return (-1);
-    exit(1); }
 
   /* Must return the number of file names that satisfy the pattern */
-  switch (fork()) {
+  switch (pid = fork()) 
+  {
     case -1:
       panic ("fork");
-      return (-1);
-      exit (1);
 
     case 0:    /* child 1 */
-      dup2(p[1], 1); /* this end of the pipe becomes the standard output */
-      close(p[0]);
-
+      dup2 (p[1], 1); /* this end of the pipe becomes the standard output */
+      close (p[0]);
       execlp ("ls", "ls", (char *)0);
       panic ("exec ls");
-      return (-1);
-      exit (1);
 
     default:                 /* parent does nothing */
-
       break;
   }
 
-  switch (fork()) {
+  switch (pid = fork())
+  {
     case -1:
       panic("fork");
-      return (-1);
-      exit(1);
 
     case 0:    /* child 2 */
       dup2(p2[1], 1); /* this end of the pipe becomes the standard output */
@@ -170,21 +160,18 @@ do_numfiles (char *pattern)
       close(p[1]);
       execlp ("grep", "grep", "-c", pattern, (char *)0);
       panic ("exec grep");
-      return (-1);
-      exit(1);
 
     default:                 /* parent does nothing */
       break;
   }
 
-
   close(p[0]);close(p[1]);    /* this is important! */
-  close(p2[1]);    /* this is important! */
+  close(p2[1]);               /* this is important! */
   read(p2[0], buf, 1);
   close(p2[0]);
   wait (&st1);
   wait (&st2);
-  return atoi(buf);
+  return atoi (buf);
 }
 
 /* Implements exit request */
