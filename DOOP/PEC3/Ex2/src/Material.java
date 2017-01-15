@@ -5,7 +5,8 @@ import java.text.DecimalFormat;
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 
 public class Material{
@@ -26,7 +27,7 @@ public class Material{
    private Double pricePerCm2;
 
    /**
-    * Constructor method
+    * CONSTRUCTOR
     *
     * @param name
     *                 the Material's name
@@ -34,8 +35,8 @@ public class Material{
     *                 the Material's price per cm2
     */
    public Material(String name, Double pricePerCm2) {
-      this.name = name;
-      this.pricePerCm2 = pricePerCm2;
+     this.name = name;
+     this.pricePerCm2 = pricePerCm2;
    }
 
    /**
@@ -51,7 +52,7 @@ public class Material{
     * @return attribute pricePerCm2
     */
    public double getPricePerCm2() {
-      return this.pricePerCm2;
+     return this.pricePerCm2;
    }
 
    /**
@@ -65,5 +66,4 @@ public class Material{
 	   sb.append("Price per cm2: " + myFormat.format(this.pricePerCm2) + " euros" + NL);
 	   return sb.toString();
    }
-
 }
