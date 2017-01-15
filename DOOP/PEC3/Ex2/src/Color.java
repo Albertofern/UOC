@@ -5,7 +5,8 @@ import java.text.DecimalFormat;
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 
 public class Color{
@@ -26,7 +27,7 @@ public class Color{
    private Double priceFactor;
 
    /**
-    * Constructor method
+    * CONSTRUCTOR
     *
     * @param name
     *                 the Color name
@@ -55,8 +56,7 @@ public class Color{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Color object.
+    * This method generates and returns an String with the information of the Color object.
     */
    public String toString() {
 	   DecimalFormat myFormat = new DecimalFormat("#0.000");
@@ -65,5 +65,4 @@ public class Color{
 	   sb.append("Price factor: " + myFormat.format(this.getPriceFactor()));
 	   return sb.toString();
    }
-
 }
