@@ -74,7 +74,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [name=" + name +
-				", id=" + cip + 
-				", city=" + this.getCity().getName() +  "]";
+		       ", id=" + cip + 
+		       ", city=" + this.getCity().getName() +  "]";
 	}
 }
