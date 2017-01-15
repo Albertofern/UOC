@@ -3,15 +3,16 @@
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 public class Main1 {
   private static final int N = 5; // dimension of array
 
   private static void admit(Visit[] visits,String patID) {
-	  for (int i=0; i<visits.length; i++){
-		  if (visits[i].getPatientID().equals(patID)){
-			  if (visits[i].scheduledForToday()){
+		for (int i=0; i<visits.length; i++) {
+		  if (visits[i].getPatientID().equals(patID)) {
+			  if (visits[i].scheduledForToday()) {
 				  visits[i].setStatus(Visit.STATUS_ADMITTED);
 			  }  
 		  }
@@ -19,26 +20,24 @@ public class Main1 {
   }
 
   private static void printAdmittedVisits(Visit[] visits,String patID) {
-	  boolean patientHasVisit=false;
-	  for (int i=0; i<visits.length; i++){
-		  if (visits[i].getPatientID().equals(patID)){
-			  if (visits[i].getStatus() == Visit.STATUS_ADMITTED){
-				  patientHasVisit=true;
+	  boolean patientHasVisit = false;
+	  for (int i=0; i<visits.length; i++) {
+		  if (visits[i].getPatientID().equals(patID)) {
+			  if (visits[i].getStatus() == Visit.STATUS_ADMITTED) {
+				  patientHasVisit = true;
 				  System.out.println (visits[i]);
 			  }
-			  //else
-			//	  System.out.println("You don't have any scheduled visit today");
 		  }
 	  }
-	  if (patientHasVisit == false){
+	  if (patientHasVisit) {
 		  System.out.println("You don't have any scheduled visit today");
 	  }
   }
 
   private static boolean serviceHasVisits(Visit[] visits,String serviceID) {
-	  for (int i=0; i<visits.length; i++){
-		  if (visits[i].getServiceID().equals(serviceID)){
-			  if (visits[i].scheduledForToday()){
+	  for (int i=0; i<visits.length; i++) {
+		  if (visits[i].getServiceID().equals(serviceID)) {
+			  if (visits[i].scheduledForToday()) { 
 				  return true;
 			  }
 		  }
