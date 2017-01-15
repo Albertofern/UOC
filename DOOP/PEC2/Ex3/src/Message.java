@@ -38,10 +38,13 @@ public class Message {
 		long now = System.currentTimeMillis();
 		this.date = new java.util.Date(now);
 		int pos = text.indexOf(".");
-		if (pos > 0) this.summary = text.substring(0, pos);
+		if (pos > 0) {
+			this.summary = text.substring(0, pos);
+		}
 		else this.summary = text;
 	}
 	
+	// CONSTRUCTOR Overload
 	public Message(Customer sendTo, Customer sendFrom){
 		this.sendTo = sendTo;
 		this.sendFrom = sendFrom;		
@@ -186,11 +189,11 @@ public class Message {
 	@Override
 	public String toString() {	
 		return "Message [sendTo: " + this.getReceiver().getName() + 
-			", sendFrom: " + this.getTransmitter().getName() + 
-			", summary=" + this.getSummary() + 
-			", priority=" + this.getPriority() + 
-			", text=" + this.getText() + 
-			", date=" + this.getDate() + 
-			", read=" + this.isRead() + "]";
+		       ", sendFrom: " + this.getTransmitter().getName() + 
+		       ", summary=" + this.getSummary() + 
+		       ", priority=" + this.getPriority() + 
+		       ", text=" + this.getText() + 
+		       ", date=" + this.getDate() + 
+		       ", read=" + this.isRead() + "]";
 	}
 }
