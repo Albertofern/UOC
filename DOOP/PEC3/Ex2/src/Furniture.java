@@ -3,7 +3,8 @@
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 
 public abstract class Furniture{
@@ -25,7 +26,7 @@ public abstract class Furniture{
    private Color color;
 
    /**
-    * Constructor method
+    * CONSTRUCTOR
     *
     * @param id
     *            the Furniture id
@@ -35,9 +36,9 @@ public abstract class Furniture{
     *            the Furniture color object
     */
    public Furniture(String id, Material material, Color color) {
-      this.id = id;
-      this.material = material;
-      this.color = color;
+		 this.id = id;
+     this.material = material;
+     this.color = color;
    }
 
    /**
@@ -45,7 +46,7 @@ public abstract class Furniture{
     * @return attribute id
     */
    public String getId() {
-      return this.id;
+     return this.id;
    }
 
    /**
@@ -53,7 +54,7 @@ public abstract class Furniture{
     * @return attribute material
     */
    public Material getMaterial() {
-      return this.material;
+     return this.material;
    }
 
    /**
@@ -74,7 +75,6 @@ public abstract class Furniture{
     * the product identification code.
     */
    public String toString() {
-      return "Furniture id: " + this.id + NL;
+     return "Furniture id: " + this.id + NL;
    }
-
 }
