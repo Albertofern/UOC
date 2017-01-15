@@ -3,8 +3,10 @@
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
+
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -32,7 +34,7 @@ public class Visit {
   private int status;
 
   /**
-   * Constructor method
+   * CONSTRUCTOR
    *
    * @parama vID Visit ID
    * @param patID Patient ID
@@ -99,16 +101,29 @@ public class Visit {
     int today_month = cal.get(Calendar.MONTH);
     int today_year = cal.get(Calendar.YEAR);
     cal.setTime(this.dayAndHour);
-    return today_day==cal.get(Calendar.DAY_OF_MONTH) && today_month==cal.get(Calendar.MONTH) && today_year==cal.get(Calendar.YEAR);
+    return today_day == cal.get(Calendar.DAY_OF_MONTH) && 
+                        today_month==cal.get(Calendar.MONTH) && 
+                        today_year==cal.get(Calendar.YEAR);
   }
 
   public String toString() {
     SimpleDateFormat dateFormatter = new SimpleDateFormat();
     Calendar cal = Calendar.getInstance();
     cal.setTime(this.dayAndHour);
-    String hours = cal.get(Calendar.HOUR)<10?"0"+cal.get(Calendar.HOUR):""+cal.get(Calendar.HOUR);
-    String minutes = cal.get(Calendar.MINUTE)<10?"0"+cal.get(Calendar.MINUTE):""+cal.get(Calendar.MINUTE);
-    String visitDate = cal.get(Calendar.DAY_OF_MONTH)+"/"+(cal.get(Calendar.MONTH)+1)+"/"+cal.get(Calendar.YEAR)+" "+hours+":"+minutes;
-    return "ID: "+this.ID+", PATIENT: "+this.patientID+", SERVICE: "+this.serviceID+", LOCATION: "+this.location+", DOCTOR: "+this.doctor+", DATE: "+visitDate;
+    String hours = cal.get(Calendar.HOUR)<10?"0" + 
+                   cal.get(Calendar.HOUR):"" + 
+                   cal.get(Calendar.HOUR);
+    String minutes = cal.get(Calendar.MINUTE)<10?"0" + 
+                     cal.get(Calendar.MINUTE):"" + 
+                     cal.get(Calendar.MINUTE);
+    String visitDate = cal.get(Calendar.DAY_OF_MONTH) + "/" + 
+                       (cal.get(Calendar.MONTH) + 1) + "/" + 
+                       cal.get(Calendar.YEAR) + " " + hours + ":" + minutes;
+    return "ID: " + this.ID + 
+           ", PATIENT: " + this.patientID + 
+           ", SERVICE: " + this.serviceID + 
+           ", LOCATION: " + this.location + 
+           ", DOCTOR: " + this.doctor + 
+           ", DATE: " + visitDate;
   }
 }
