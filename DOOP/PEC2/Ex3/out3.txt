@@ -1,0 +1,10 @@
+All about messages -------
+Message [sendTo: Mary Poppins, sendFrom: John Wayne, summary=NA, priority=0, text=NA, date=null, read=true]
+Message [sendTo: John Wayne, sendFrom: Mary Poppins, summary=NA, priority=0, text=NA, date=null, read=false]
+Message [sendTo: Ian Malkovick, sendFrom: Mary Poppins, summary=Still waiting, priority=10, text=Still waiting. No news about the journey, date=Sat Oct 01 13:13:51 CEST 2016, read=false]
+Message [sendTo: John Wayne, sendFrom: Mary Poppins, summary=No good news, priority=10, text=No good news. The fax was not received on time, date=Sat Oct 01 13:13:51 CEST 2016, read=true]
+Message [sendTo: John Wayne, sendFrom: Mary Poppins, summary=Still waiting, priority=10, text=Still waiting. Suspended trip to Xina, date=Sat Oct 01 13:13:51 CEST 2016, read=false]
+Message [sendTo: Mary Poppins, sendFrom: John Wayne, summary=Text equal to summary, priority=3, text=Text equal to summary, date=Sat Oct 01 13:13:51 CEST 2016, read=false]
+false
+false
+true
