@@ -103,30 +103,30 @@ public class Main2{
 
 
 
-	 // Printing furniture information:
-      System.out.println("********************************");
-      System.out.println("       OUTPUT OF STEP 2");
-      System.out.println("********************************");
-      System.out.println("List of furniture (in the order they were introduced)");
-      System.out.println("-----------------------------------------------------");
-      System.out.println(myF.listOfFurniture());
+	   // Printing furniture information:
+     System.out.println("********************************");
+     System.out.println("       OUTPUT OF STEP 2");
+     System.out.println("********************************");
+     System.out.println("List of furniture (in the order they were introduced)");
+     System.out.println("-----------------------------------------------------");
+     System.out.println(myF.listOfFurniture());
 
-      // ***************************************************
-      //   STEP 3 (Creating and listing Orders)
-      // ***************************************************
+     // ***************************************************
+     //   STEP 3 (Creating and listing Orders)
+     // ***************************************************
 
-      SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+     SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
 
-      // Creating some Order objects and adding them into
-      // its corresponding list:
-	 myF.add(new Order("O001",d.parse("15-10-2016"),5,fCloset1));
-	 myF.add(new Order("O002",d.parse("15-10-2016"),10,fCloset2));
+     // Creating some Order objects and adding them into
+     // its corresponding list:
+	   myF.add(new Order("O001",d.parse("15-10-2016"),5,fCloset1));
+	   myF.add(new Order("O002",d.parse("15-10-2016"),10,fCloset2));
      myF.add(new Order("O003",d.parse("16-10-2016"),3,fCloset3));
-	 myF.add(new Order("O004",d.parse("16-10-2016"),2,fCloset4));
-	 myF.add(new Order("O005",d.parse("17-10-2016"),10,fBed));
-	 myF.add(new Order("O006",d.parse("17-10-2016"),5,pBed2));
+	   myF.add(new Order("O004",d.parse("16-10-2016"),2,fCloset4));
+	   myF.add(new Order("O005",d.parse("17-10-2016"),10,fBed));
+	   myF.add(new Order("O006",d.parse("17-10-2016"),5,pBed2));
 
-	 // Printing order's information:
+	    // Printing order's information:
       System.out.println("********************************");
       System.out.println("       OUTPUT OF STEP 3");
       System.out.println("********************************");
@@ -141,7 +141,7 @@ public class Main2{
       System.out.println("********************************");
       System.out.println("       OUTPUT OF STEP 4");
       System.out.println("********************************");
-	 // Printing product's information (in a range of prices):
+	    // Printing product's information (in a range of prices):
       System.out.println("List of furniture within a price range (in order of introduction)");
       System.out.println("-----------------------------------------------------------------");
       double min = 1500.0;  // minimum price
