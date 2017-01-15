@@ -1,3 +1,3 @@
-# UOC Exercises for the following subjects/years:
+# UOC Exercises:
 ## Operating Systems (2016/2017-1)
 ## Design and OO-Programming (2016/2017-1)
