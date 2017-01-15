@@ -1,0 +1,12 @@
+Cities info -------
+City [name=BCN]
+City [name=NY]
+Customers info -------
+Customer [name=Mary Poppins, id=id1, city=BCN]
+Customer [name=John Wayne, id=id2, city=NY]
+Customer [name=Ian Malkovick, id=id3, city=BCN]
+All about messages -------
+Message [sendTo: Ian Malkovick, sendFrom: Mary Poppins, text=Still waiting. No news]
+Message [sendTo: John Wayne, sendFrom: Mary Poppins, text=No good news. Fax not received]
+Message [sendTo: John Wayne, sendFrom: Mary Poppins, text=Still waiting. Suspended trip]
+Message [sendTo: Mary Poppins, sendFrom: John Wayne, text=Text equal to summary]
