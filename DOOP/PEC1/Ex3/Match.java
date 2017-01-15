@@ -4,6 +4,7 @@ import java.util.Date;
 /**
  *
  * @author DPOO
+ * @modified David Doblas Jiménez
  *
  */
 public class Match {
@@ -21,13 +22,14 @@ public class Match {
 	 * @param b second team
 	 */
 	public Match(Team a, Team b,Date d) {
-		// Initialize the teams for a match
+		// Initialize teams for a match
 		teams = new Team[2];
 		teams[0] = a;
 		teams[1] = b;
-		this.date = d;
-		// Assuming that there will be only 6 points
-		this.scores = new Score[6];
+		date = d;
+		nscore = 0;
+		// Assuming that there will be only 10 points per match
+		this.scores = new Score[10];
 
 	}
 
@@ -42,8 +44,8 @@ public class Match {
 	}
 
 	/**
-	 *
-	 * @return
+	 * 
+	 * @return the winner of the match
 	 */
 	public Team getWinner() {
 		if (this.getScore(teams[0]) > this.getScore(teams[1])){
@@ -56,17 +58,17 @@ public class Match {
 
 	/**
 	 *
-	 * @return
+	 * @return the scores of each team
 	 */
 	public String getScores() {
 		return "Team " + teams[0].getName() + 
-				" score: "+this.getScore(teams[0]) + 
-				" Team " + teams[1].getName() + 
-				" score: "+this.getScore(teams[1]);
+		       " score: "+this.getScore(teams[0]) + 
+		       " Team " + teams[1].getName() + 
+		       " score: "+this.getScore(teams[1]);
 	}
 
 	/**
-	 *
+	 * get the score of a player in a certain match
 	 * @param t
 	 */
 	public Integer getScore(Team t) {
@@ -90,5 +92,4 @@ public class Match {
 		}
 		return result;
 	}
-
 }
