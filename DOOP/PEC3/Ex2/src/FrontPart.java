@@ -3,7 +3,8 @@
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 
 public abstract class FrontPart {
@@ -70,8 +71,7 @@ public abstract class FrontPart {
    abstract double price();
 
    /**
-    * This method generates and returns an String with
-    * the product identification code.
+    * This method generates and returns a string with the product identification code.
     */
    public String toString() {
       return "  FrontPart id: " + this.id + NL;
