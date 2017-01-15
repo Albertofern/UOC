@@ -5,7 +5,8 @@ import java.text.DecimalFormat;
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 
 public class Bed extends Furniture{
@@ -24,7 +25,7 @@ public class Bed extends Furniture{
    private double y;
 
    /**
-    * Constructor method
+    * CONSTRUCTOR
     *
     * @param id
     *            the Furniture id
@@ -60,11 +61,8 @@ public class Bed extends Furniture{
    }
 
    /**
-    * This method calculates and returns the price of the
-    * Bed.
-    *
-    * The price of the Bed is calculated as:
-    *   (its Area) x (price per cm2 of the material) x (price factor of the color)
+    * This method calculates and returns the price of the Bed as:
+    *   (Area) x (price per cm2 of the material) x (price factor of the color)
     *
     * @return price of the cylinder
     */
@@ -75,11 +73,9 @@ public class Bed extends Furniture{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Bed object.
+    * This method generates and returns an String with the information of the Bed object
     *
-    * Note that this method has to access to the Material
-    * and Color attributes of the class to get some information.
+    * Note that this method has to access to the Material and Color attributes of the class to get some information.
     */
    public String toString() {
 	   DecimalFormat myFormat1 = new DecimalFormat("#0.000");
