@@ -1,6 +1,7 @@
 /**
  * 
  * @author DPOO
+ * @modified David Doblas Jiménez
  *
  */
 public class Person {
@@ -10,7 +11,8 @@ public class Person {
 	private Integer age;
 
 	/**
-	 * Constructor
+	 * CONSTRUCTOR
+	 *
 	 * @param name name of the person
 	 * @param age age of the person
 	 */
@@ -21,7 +23,7 @@ public class Person {
 
 	/**
 	 * 
-	 * @return
+	 * @return the name
 	 */
 	public String getName () {
 		return name;
@@ -29,7 +31,7 @@ public class Person {
 
 	/**
 	 * 
-	 * @return
+	 * @return the age
 	 */
 	public Integer getAge () {
 		return age;
