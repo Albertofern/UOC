@@ -2,6 +2,7 @@
 /**
  *
  * @author DPOO
+ * @modified David Doblas Jiménez
  *
  */
 public class Team {
@@ -9,28 +10,29 @@ public class Team {
 	// Attributes
 	private String name;
 	private String city;
-	private int since;
 	private Player players[];
 	private int nplayers;
 	private Match matches[];
 	private int nmatches;
 
 	/**
-	 * Constructor
+	 * CONSTRUCTOR
 	 *
-	 * @param p player who scores
-	 * @param m match in play
+	 * @param name of the team
+	 * @param city of the team
 	 */
 	public Team(String name, String city) {
 		this.name = name;
 		this.city = city;
+		nplayers = 0;
+		nmatches = 0;
 		// Each team has 4 players
 		players = new Player [4];
 	}
 
 	/**
 	 *
-	 * @return
+	 * @return the name of a team
 	 */
 	public String getName() {
 		return name;
@@ -38,7 +40,7 @@ public class Team {
 
 	/**
 	 *
-	 * @return
+	 * @return the players of a team
 	 */
 	public Player[] getPlayers() {
 		return players;
@@ -63,5 +65,4 @@ public class Team {
 		matches[nmatches] = m;
 		nmatches++;
 	}
-
 }
