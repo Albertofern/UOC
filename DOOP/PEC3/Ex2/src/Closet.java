@@ -4,11 +4,12 @@ import java.util.Enumeration;
 import java.util.ArrayList;
 
 /**
- * This class represents an Closet
+ * This class represents a Closet
  *
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
 public class Closet extends Furniture{
@@ -35,7 +36,7 @@ public class Closet extends Furniture{
    private ArrayList<FrontPart> frontparts;
 
    /**
-    * Constructor method
+    * CONSTRUCTOR
     *
     * @param id
     *            the Furniture id
@@ -61,7 +62,7 @@ public class Closet extends Furniture{
     * @return attribute width
     */
    public double getWidth() {
-      return this.width;
+		 return this.width;
    }
 
    /**
@@ -69,7 +70,7 @@ public class Closet extends Furniture{
     * @return attribute height
     */
    public double getHeight() {
-      return this.height;
+     return this.height;
    }
 
    /**
@@ -77,7 +78,7 @@ public class Closet extends Furniture{
     * @return attribute depth
     */
    public double getDepth() {
-      return this.depth;
+     return this.depth;
    }
 
    /**
@@ -89,8 +90,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method generates and returns the information of
-    * every element in the front parts list of the closet, in
+    * This method generates and returns the information of every element in the front parts list of the closet, in
     * the order they were introduced.
     */
    public String listOfFrontParts() {
@@ -103,10 +103,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method calculates and returns the price of the
-    * Furniture.
-    *
-    * The price of the Furniture is calculated as:
+    * This method calculates and returns the price of the Furniture as:
     *   (sum of its areas) x (price per cm2 of the material) x (price factor of the color)
     *
     * @return price of the Furniture
@@ -118,13 +115,10 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Furniture object.
+    * This method generates and returns an String with the information of the Furniture object.
     *
-    * Note that this method has to access to the Material
-    * and Color attributes of the class to get some information,
-    * and that this method also gets price from front parts, if any,
-    * to add to final price.
+    * Note that this method has to access to the Material and Color attributes of the class to get some information.
+    * It also gets the price to front parts, if any, to add to final price.
     */
    public String toString() {
 	   DecimalFormat myFormat1 = new DecimalFormat("#0.000");
@@ -148,8 +142,7 @@ public class Closet extends Furniture{
     * Get the price from the FrontParts of this Closet
     */
    private double frontPartsPrice() {
-	   double total;
-	   total = 0;
+	   double total = 0.0;
 	   for (Iterator<FrontPart> it = frontparts.iterator(); it.hasNext();){
 		   FrontPart f = (FrontPart) it.next();
 		   total += f.price();
