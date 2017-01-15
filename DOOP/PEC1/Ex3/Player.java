@@ -2,6 +2,7 @@
 /**
  *
  * @author DPOO
+ * @modified David Doblas Jiménez
  *
  */
 public class Player extends Person {
@@ -13,7 +14,7 @@ public class Player extends Person {
 	private Team myTeam; // no role specified in UML
 
 	/**
-	 * Constructor
+	 * CONSTRUCTOR
 	 *
 	 * @param name name of the player
 	 * @param age age of the player
@@ -25,13 +26,14 @@ public class Player extends Person {
 		super(name,age);
 		this.myTeam = t;
 		this.number = number;
-		// Assuming that there will be only 6 points
-		this.scores = new Score[6]; 
+		this.nscores = 0;
+		// Assuming that there will be only 10 points
+		this.scores = new Score[10]; 
 	}
 
 	/**
 	 *
-	 * @return
+	 * @return the score of a player
 	 */
 	public Score[] getScores() {
 		return scores;
@@ -43,13 +45,13 @@ public class Player extends Person {
 	 * @param s new score
 	 */
 	public void addScore(Score s) {
-		scores[nscores] = s;
+		this.scores[nscores] = s;
 		nscores++;
 	}
 
 	/**
 	 *
-	 * @return
+	 * @return the number of a player
 	 */
 	public Integer getNumber() {
 		return number;
