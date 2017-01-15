@@ -1,9 +1,9 @@
 import java.util.Date;
 
-
 /**
  * 
  * @author DPOO
+ * @modified David Doblas Jiménez
  *
  */
 public class Score {
@@ -15,7 +15,7 @@ public class Score {
 
 
 	/**
-	 * Constructor
+	 * CONSTRUCTOR
 	 *
 	 * @param p player who scores
 	 * @param m match in play
@@ -29,6 +29,7 @@ public class Score {
 
 	/**
 	 * 
+	 * @return the date of a score
 	 */
 	public Date getWhen() {
 		return when;
@@ -36,6 +37,7 @@ public class Score {
 
 	/**
 	 * 
+	 * @return the player who made certain score
 	 */
 	public Player getPlayer() {
 		return player;
@@ -43,9 +45,9 @@ public class Score {
 
 	/**
 	 * 
+	 * @return the match
 	 */
 	public Match getMatch() {
 		return match;
 	}
-
 }
