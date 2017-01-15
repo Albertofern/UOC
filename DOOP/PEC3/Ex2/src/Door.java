@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
 public class Door extends FrontPart{
@@ -48,7 +49,7 @@ public class Door extends FrontPart{
     * @return attribute x
     */
    public double getX() {
-      return this.x;
+		 return this.x;
    }
 
    /**
@@ -56,14 +57,11 @@ public class Door extends FrontPart{
     * @return attribute y
     */
    public double getY() {
-      return this.y;
+     return this.y;
    }
 
    /**
-    * This method calculates and returns the price of the
-    * Bed.
-    *
-    * The price of the Bed is calculated as:
+    * This method calculates and returns the price of a Bed as:
     *   (its Area) x (price per cm2 of the material) x (price factor of the color)
     *
     * @return price of the cylinder
@@ -75,11 +73,9 @@ public class Door extends FrontPart{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Door object.
+    * This method generates and returns an String with the information of the Door object.
     *
-    * Note that this method has to access to the Material
-    * and Color attributes of the class to get some information.
+    * Note that this method has to access to the Material and Color attributes of the class to get some information.
     */
    public String toString() {
 	   DecimalFormat myFormat1 = new DecimalFormat("#0.000");
