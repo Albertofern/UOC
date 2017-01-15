@@ -3,16 +3,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 /**
  *
  * @author DPOO
+ * @modified David Doblas Jiménez
  */
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
 
-		//Creation of the teams
+		//Creation of teams
 		Team t1 = new Team("team 1", "Barcelona");
 		Team t2 = new Team("team 2", "Barcelona");
 
@@ -89,5 +89,4 @@ public class Main {
 		System.out.println("result match: " + m2.getScores());
 		System.out.println("winner match 2: " + m2.getWinner().getName());
 	}
-
 }
