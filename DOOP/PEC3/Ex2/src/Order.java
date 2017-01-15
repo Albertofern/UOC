@@ -6,7 +6,8 @@ import java.text.DecimalFormat;
  *
  * @author POO teaching staff
  * @version 1.0
- * @since Autumn 2016
+ * @since Fall 2016
+ * @modified David Doblas Jiménez
  */
 
 public class Order{
@@ -37,7 +38,7 @@ public class Order{
    private Furniture furniture;
 
    /**
-    * Constructor method
+    * CONSTRUCTOR
     *
     * @param ref
     *            the Order's reference code
@@ -49,10 +50,10 @@ public class Order{
     *            the type of Furniture to make
     */
    public Order(String ref, Date date, int quantity, Furniture furniture) {
-      this.ref = ref;
-      this.date = date;
-      this.quantity = quantity;
-      this.furniture = furniture;
+     this.ref = ref;
+     this.date = date;
+     this.quantity = quantity;
+     this.furniture = furniture;
    }
 
    /**
@@ -88,10 +89,7 @@ public class Order{
    }
 
    /**
-    * This method calculates and returns the total amount
-    * of the order.
-    *
-    * The total amount is calculated as:
+    * This method calculates and returns the total amount of the order as:
     *   (quantity) x (price of the Furniture)
     *
     * @return total amount of the order
@@ -101,11 +99,9 @@ public class Order{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Order object.
+    * This method generates and returns a string with the information of the Order object.
     *
-    * Note that this method has to access to the Furniture
-    * Attribute of the class to get some information.
+    * Note that this method has to access to the Furniture attribute of the class to get some information.
     *
     */
    public String toString() {
@@ -122,19 +118,16 @@ public class Order{
    }
 
    /**
-    * Redefinition of the equals method, to define whether two
-    * Order objects are equals.
+    * Redefinition of the equals method to define whether two Order objects are equals.
     *
-    * The method has to verify that the parameter object is an
-    * instance of class Order.
+    * The method has to verify that the parameter object is an instance of class Order.
     *
-    * So, two Order objects will be considered equals if, and
-    * only if, their reference codes are equals (regardless
+    * So, two Order objects will be considered equals if, and only if, their reference codes are equals (regardless
     * the values of the rest of attributes).
     */
    public boolean equals (Object obj) {
 	   if (obj instanceof Order) {
-		   Order tmpOrder = (Order) obj;
+			 Order tmpOrder = (Order) obj;
 	       return this.ref.equals(tmpOrder.getRef());
 	   }
 	   else
