@@ -5,33 +5,34 @@ import java.util.Enumeration;
 import java.util.ArrayList;
 
 /**
- * This class represents an Closet
+ * This class represents a Closet
  *
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
-public class Closet extends Furniture{
+public class Closet extends Furniture {
 
    // The new line separator:
    private final String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the Furniture width
+    * This attribute stores the Furniture width
     */
    private double width;
    /**
-    * This atribute stores the Furniture height
+    * This attribute stores the Furniture height
     */
    private double height;
    /**
-    * This atribute stores the Furniture depth
+    * This attribute stores the Furniture depth
     */
    private double depth;
 
    /**
-    * This atribute stores the list of frontparts
+    * This attribute stores the list of frontparts
     */
    private ArrayList<FrontPart> frontparts;
 
@@ -41,7 +42,7 @@ public class Closet extends Furniture{
     * @param id
     *            the Furniture id
     * @param material
-    *            the Furniture material object
+    *            the Furniture material
     * @param w
     *            the Closet width
     * @param h
@@ -51,14 +52,14 @@ public class Closet extends Furniture{
     */
    public Closet(String id, Material material, Color color, double w, double h, double d) {
       super(id,material,color);
-	    this.width = w;
+      this.width = w;
       this.height = h;
       this.depth = d;
       this.frontparts = new ArrayList<FrontPart>();
    }
 
    /**
-    * Getter method of atribute width
+    * Getter method of attribute width
     * @return atribute width
     */
    public double getWidth() {
@@ -66,7 +67,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * Getter method of atribute height
+    * Getter method of attribute height
     * @return atribute height
     */
    public double getHeight() {
@@ -74,7 +75,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * Getter method of atribute depth
+    * Getter method of attribute depth
     * @return atribute depth
     */
    public double getDepth() {
@@ -90,8 +91,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method generates and returns the information of
-    * every element in the front parts list of the closet, in
+    * This method generates and returns the information of every element in the front parts list of the closet, in
     * the order they were introduced.
     */
    public String listOfFrontParts() {
@@ -104,8 +104,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method calculates and returns the price of the
-    * Furniture.
+    * This method calculates and returns the price of a Furniture object.
     *
     * The price of the Furniture is calculated as:
     *   (sum of its areas) x (price per cm2 of the material) x (price factor of the color)
@@ -118,13 +117,10 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Furniture object.
+    * This method generates and returns an String with the information of the Furniture object.
     *
-    * Note that this method has to access to the Material
-    * and Color atributes of the class to get some information,
-    * and that this method also gets price from front parts, if any,
-    * to add to final price.
+    * Note that this method has to access to the Material and Color atributes of the class to get some information,
+    * and that this method also gets price from front parts, if any, to add to the final price.
     */
    public String toString() {
       DecimalFormat myFormat1 = new DecimalFormat("#0.000");
