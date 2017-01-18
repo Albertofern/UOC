@@ -2,6 +2,7 @@
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+
 /**
  * This class represents an order
  *
@@ -10,7 +11,7 @@ import java.text.DecimalFormat;
  * @since Autumn 2016
  */
 
-public class Order{
+public class Order {
 
    /**
     * The new line separator
@@ -18,22 +19,22 @@ public class Order{
    private String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the order reference code
+    * This attribute stores the order reference code
     */
    private String ref;
 
    /**
-    * This atribute stores the order date
+    * This attribute stores the order date
     */
    private Date date;
 
    /**
-    * This atribute stores the number of Furniture units to make
+    * This attribute stores the number of Furniture units to make
     */
    private int quantity;
 
    /**
-    * This atribute stores the type of Furniture to make
+    * This attribute stores the type of Furniture to make
     */
    private Furniture furniture;
 
@@ -57,7 +58,7 @@ public class Order{
    }
 
    /**
-    * Getter method of atribute ref
+    * Getter method of attribute ref
     * @return atribute ref
     */
    public String getRef() {
@@ -65,7 +66,7 @@ public class Order{
    }
 
    /**
-    * Getter method of atribute date
+    * Getter method of attribute date
     * @return atribute date
     */
    public Date getDate() {
@@ -73,7 +74,7 @@ public class Order{
    }
 
    /**
-    * Getter method of atribute quantity
+    * Getter method of attribute quantity
     * @return atribute quantity
     */
    public int getQuantity() {
@@ -81,7 +82,7 @@ public class Order{
    }
 
    /**
-    * Getter method of atribute Furniture
+    * Getter method of attribute Furniture
     * @return atribute Furniture
     */
    public Furniture getFurniture() {
@@ -89,8 +90,7 @@ public class Order{
    }
 
    /**
-    * This method calculates and returns the total amount
-    * of the order.
+    * This method calculates and returns the total amount of the order.
     *
     * The total amount is calculated as:
     *   (quantity) x (price of the Furniture)
@@ -102,11 +102,9 @@ public class Order{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Order object.
+    * This method generates and returns a String with the information of the Order object.
     *
-    * Note that this method has to access to the Furniture
-    * atribute of the class to get some information.
+    * Note that this method has to access to the Furniture attribute of the class to get some information.
     *
     */
    public String toString() {
@@ -123,14 +121,11 @@ public class Order{
    }
 
    /**
-    * Redefinition of the equals method, to define whether two
-    * Order objects are equals.
+    * Redefinition of the equals method, to define whether two Order objects are equals.
     *
-    * The method has to verify that the paramater object is an
-    * instance of class Order.
+    * The method has to verify that the paramater object is an instance of class Order.
     *
-    * So, two Order objects will be considered equals if, and
-    * only if, their reference codes are equals (regardless
+    * So, two Order objects will be considered equals if, and only if, their reference codes are equals (regardless
     * the values of the rest of atributes).
     */
    public boolean equals (Object obj) {
@@ -141,5 +136,4 @@ public class Order{
       else
          return false;
    }
-
 }
