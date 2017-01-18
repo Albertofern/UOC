@@ -1,0 +1,445 @@
+Exception: ex2.FactoryException: Incorrect Material: negative value of Price/cm2. It has not been added. 
+Exception: ex2.FactoryException: Repeated Color. It has not been added.
+********************************
+       OUTPUT OF STEP 1
+********************************
+List of materials (in the order they were introduced)
+-----------------------------------------------------
+Name: Wood	Price per cm2: 0.013 euros
+Name: Melamine	Price per cm2: 0.010 euros
+Name: Glass	Price per cm2: 0.015 euros
+
+List of colors (in the order they were introduced)
+-----------------------------------------------------
+Name: Black	Price factor: 1.000
+Name: Red	Price factor: 1.100
+Name: Wenge	Price factor: 1.000
+
+********************************
+       OUTPUT OF STEP 2
+********************************
+List of furniture (in the order they were introduced)
+-----------------------------------------------------
+Furniture id: C01
+Furniture description: 
+  Closet made on Wood with color Black
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D01
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D02
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+
+Furniture id: C02
+Furniture description: 
+  Closet made on Wood with color Wenge
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D03
+    FrontPart description: 
+      Door made on Wood with color Wenge
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D04
+    FrontPart description: 
+      Door made on Wood with color Wenge
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+
+Furniture id: C04
+Furniture description: 
+  Closet made on Melamine with color Red
+  Material price: 0.010 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.100 euros
+ Body price: 924.00 euros
+ Front parts: 
+  FrontPart id: D07
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+  FrontPart id: D08
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+  FrontPart id: D09
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+Furniture price: 1,914.00 euros
+
+Furniture id: B01
+Furniture description: 
+  Bed made on Wood with color Wenge
+  Material price: 0.013 euros per cm2
+  X: 150.00 cm
+  Y: 200.00 cm
+  Color price factor: 1.000 euros
+Furniture price: 375.00 euros
+
+
+********************************
+       OUTPUT OF STEP 3
+********************************
+List of orders (in the order they were introduced)
+--------------------------------------------------
+Order ref: O001
+Order date: 15-Oct-2016
+Order information:
+Furniture:
+Furniture id: C01
+Furniture description: 
+  Closet made on Wood with color Black
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D01
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D02
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+Quantity: 5 units
+Total amount: 9,000.00 euros
+
+Order ref: O002
+Order date: 15-Oct-2016
+Order information:
+Furniture:
+Furniture id: C02
+Furniture description: 
+  Closet made on Wood with color Wenge
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D03
+    FrontPart description: 
+      Door made on Wood with color Wenge
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D04
+    FrontPart description: 
+      Door made on Wood with color Wenge
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+Quantity: 10 units
+Total amount: 18,000.00 euros
+
+Order ref: O004
+Order date: 16-Oct-2016
+Order information:
+Furniture:
+Furniture id: C04
+Furniture description: 
+  Closet made on Melamine with color Red
+  Material price: 0.010 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.100 euros
+ Body price: 924.00 euros
+ Front parts: 
+  FrontPart id: D07
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+  FrontPart id: D08
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+  FrontPart id: D09
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+Furniture price: 1,914.00 euros
+Quantity: 2 units
+Total amount: 3,828.00 euros
+
+Order ref: O005
+Order date: 17-Oct-2016
+Order information:
+Furniture:
+Furniture id: B01
+Furniture description: 
+  Bed made on Wood with color Wenge
+  Material price: 0.013 euros per cm2
+  X: 150.00 cm
+  Y: 200.00 cm
+  Color price factor: 1.000 euros
+Furniture price: 375.00 euros
+Quantity: 10 units
+Total amount: 3,750.00 euros
+
+
+********************************
+       OUTPUT OF STEP 4
+********************************
+List of furniture within a price range (in order of introduction)
+-----------------------------------------------------------------
+Minimum price: 1,500.00 euros
+Maximum price: 1,900.00 euros
+
+Furniture id: C01
+Furniture description: 
+  Closet made on Wood with color Black
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D01
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D02
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+
+Furniture id: C02
+Furniture description: 
+  Closet made on Wood with color Wenge
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D03
+    FrontPart description: 
+      Door made on Wood with color Wenge
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D04
+    FrontPart description: 
+      Door made on Wood with color Wenge
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+
+
+********************************
+       OUTPUT OF STEP 5
+********************************
+Trying to remove Order with reference code: O002
+Order object has been removed
+List of remaining orders (in order of introduction)
+---------------------------------------------------
+Order ref: O001
+Order date: 15-Oct-2016
+Order information:
+Furniture:
+Furniture id: C01
+Furniture description: 
+  Closet made on Wood with color Black
+  Material price: 0.013 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.000 euros
+ Body price: 1,050.00 euros
+ Front parts: 
+  FrontPart id: D01
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+  FrontPart id: D02
+    FrontPart description: 
+      Door made on Wood with color Black
+      Material price: 0.013 euros per cm2
+      X: 150.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.000 euros
+    FrontPart price: 375.00 euros
+
+Furniture price: 1,800.00 euros
+Quantity: 5 units
+Total amount: 9,000.00 euros
+
+Order ref: O004
+Order date: 16-Oct-2016
+Order information:
+Furniture:
+Furniture id: C04
+Furniture description: 
+  Closet made on Melamine with color Red
+  Material price: 0.010 euros per cm2
+  Width: 300.00 cm
+  Height: 200.00 cm
+  Depth: 60.00 cm
+  Color price factor: 1.100 euros
+ Body price: 924.00 euros
+ Front parts: 
+  FrontPart id: D07
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+  FrontPart id: D08
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+  FrontPart id: D09
+    FrontPart description: 
+      Door made on Glass with color Red
+      Material price: 0.015 euros per cm2
+      X: 100.00 cm
+      Y: 200.00 cm
+      Color price factor: 1.100 euros
+    FrontPart price: 330.00 euros
+
+Furniture price: 1,914.00 euros
+Quantity: 2 units
+Total amount: 3,828.00 euros
+
+Order ref: O005
+Order date: 17-Oct-2016
+Order information:
+Furniture:
+Furniture id: B01
+Furniture description: 
+  Bed made on Wood with color Wenge
+  Material price: 0.013 euros per cm2
+  X: 150.00 cm
+  Y: 200.00 cm
+  Color price factor: 1.000 euros
+Furniture price: 375.00 euros
+Quantity: 10 units
+Total amount: 3,750.00 euros
+
+
+Trying to remove Order with reference code: O022
+Exception: ex2.FactoryException: Order not found. Impossible to remove.
+
