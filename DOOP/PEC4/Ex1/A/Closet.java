@@ -10,9 +10,10 @@ import java.util.ArrayList;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
-public class Closet extends Furniture{
+public class Closet extends Furniture {
 
    // The new line separator:
    private final String NL = System.getProperty("line.separator");
@@ -58,7 +59,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * Getter method of atribute width
+    * Getter method of attribute width
     * @return atribute width
     */
    public double getWidth() {
@@ -66,7 +67,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * Getter method of atribute height
+    * Getter method of attribute height
     * @return atribute height
     */
    public double getHeight() {
@@ -74,7 +75,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * Getter method of atribute depth
+    * Getter method of attribute depth
     * @return atribute depth
     */
    public double getDepth() {
@@ -90,8 +91,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method generates and returns the information of
-    * every element in the front parts list of the closet, in
+    * This method generates and returns the information of every element in the front parts list of the closet, in
     * the order they were introduced.
     */
    public String listOfFrontParts() {
@@ -104,8 +104,7 @@ public class Closet extends Furniture{
    }
 
    /**
-    * This method calculates and returns the price of the
-    * Furniture.
+    * This method calculates and returns the price of a furniture.
     *
     * The price of the Furniture is calculated as:
     *   (sum of its areas) x (price per cm2 of the material) x (price factor of the color)
@@ -113,18 +112,15 @@ public class Closet extends Furniture{
     * @return price of the Furniture
     */
    public double price() {
-      double area = this.height*this.depth*2 + this.width*this.height;
+      double area = this.height * this.depth * 2 + this.width * this.height;
       return (area * this.getMaterial().getPricePerCm2() * this.getColor().getPriceFactor()) + this.frontPartsPrice();
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Furniture object.
+    * This method generates and returns an String with the information of the Furniture object.
     *
-    * Note that this method has to access to the Material
-    * and Color atributes of the class to get some information,
-    * and that this method also gets price from front parts, if any,
-    * to add to final price.
+    * Note that this method has to access to the Material and Color atributes of the class to get some information,
+    * and that this method also gets price from front parts, if any, to add to final price.
     */
    public String toString() {
       DecimalFormat myFormat1 = new DecimalFormat("#0.000");
