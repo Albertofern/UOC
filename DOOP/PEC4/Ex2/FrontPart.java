@@ -5,6 +5,7 @@
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
 public abstract class FrontPart {
@@ -15,12 +16,12 @@ public abstract class FrontPart {
    private String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the product identification code
+    * This attribute stores the product identification code
     */
    private String id;
 
    /**
-    * This atribute stores the product material object
+    * This attribute stores the product material object
     */
    private Material material;
    private Color color;
@@ -42,7 +43,7 @@ public abstract class FrontPart {
    }
 
    /**
-    * Getter method of atribute id
+    * Getter method of attribute id
     * @return atribute id
     */
    public String getId() {
@@ -50,7 +51,7 @@ public abstract class FrontPart {
    }
 
    /**
-    * Getter method of atribute material
+    * Getter method of attribute material
     * @return atribute material
     */
    public Material getMaterial() {
@@ -58,7 +59,7 @@ public abstract class FrontPart {
    }
 
    /**
-    * Getter method of atribute color
+    * Getter method of attribute color
     * @return atribute color
     */
    public Color getColor() {
@@ -77,5 +78,4 @@ public abstract class FrontPart {
    public String toString() {
       return "  FrontPart id: " + this.id + NL;
    }
-
 }
