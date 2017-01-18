@@ -11,31 +11,31 @@ import java.util.Collections;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
- * @modifiedBy David Doblas Jiménez
+ * @modified David Doblas Jiménez
  */
 
-public class Factory{
+public class Factory {
 
    // The new line separator:
    private final String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the list of materials
+    * This attribute stores the list of materials
     */
    private ArrayList<Material> materials;
 
    /**
-    * This atribute stores the list of colors
+    * This attribute stores the list of colors
     */
    private ArrayList<Color> colors;
 
    /**
-    * This atribute stores the list of products
+    * This attribute stores the list of products
     */
    private ArrayList<Furniture> furniture;
 
    /**
-    * This atribute stores the list of orders
+    * This attribute stores the list of orders
     */
    private ArrayList<Order> orders;
 
@@ -82,8 +82,7 @@ public class Factory{
 	}
 
    /**
-    * This method generates and returns the information of
-    * every element in the materials list of the factory, in
+    * This method generates and returns the information of every element in the materials list of the factory, in
     * the order they were introduced.
     */
    public String listOfMaterials() {
@@ -96,8 +95,7 @@ public class Factory{
    }
 
    /**
-    * This method generates and returns the information of
-    * every element in the colors list of the factory, in
+    * This method generates and returns the information of every element in the colors list of the factory, in
     * the order they were introduced.
     */
    public String listOfColors() {
@@ -110,8 +108,7 @@ public class Factory{
    }
 
    /**
-    * This method generates and returns the information of
-    * every element in the products list of the factory, in
+    * This method generates and returns the information of every element in the products list of the factory, in
     * the order they were introduced.
     */
    public String listOfFurniture() {
@@ -124,8 +121,7 @@ public class Factory{
    }
 
    /**
-    * This method generates and returns the information of
-    * every element in the orders list of the factory, in
+    * This method generates and returns the information of every element in the orders list of the factory, in
     * the order they were introduced.
     */
    public String listOfOrders() {
@@ -138,10 +134,8 @@ public class Factory{
    }
 
    /**
-    * This method generates and returns the information of
-    * those elements in the furniture list of the factory,
-    * whose price is comprised between a minimum and a maximum
-    * values (both included).
+    * This method generates and returns the information of those elements in the furniture list of the factory,
+    * whose price is comprised between a minimum and a maximum values (both included).
     * @param min
     *             minimum price
     * @param max
@@ -151,30 +145,25 @@ public class Factory{
       StringBuilder sb = new StringBuilder();
       for (Iterator<Furniture> it = furniture.iterator(); it.hasNext();) {
          Furniture f = (Furniture) it.next();
-         if ((f.price()>=min)&&(f.price()<=max))
+         if ((f.price()>=min) && (f.price()<=max))
            sb.append(f.toString() + NL);
       }
       return sb.toString();
    }
 
    /**
-    * This method removes an Order object from the list orders.
-    * To do its task, this method has to use the appropriate
+    * This method removes an Order object from the list orders. To do its task, this method has to use the appropriate
     * method of ArrayList class.
-    * And to do that, it is necessary to redefine the equals
-    * method on class Order, to define whether two Order
-    * objects are equals (see description of equals method in
-    * class Order)
+    * And to do that, it is necessary to redefine the equals method on class Order, to define whether two Order
+    * objects are equals (see description of equals method in class Order)
     */
    public boolean removeOrder(Order order) {
       return this.orders.remove(order);
    }
    
    /**
-    * This method generates and returns the information of
-    * every element in the furniture list of the factory, ordered
-    * by id, considering this as the "natural" order of the
-    * elements in this list.
+    * This method generates and returns the information of every element in the furniture list of the factory, ordered
+    * by id, considering this as the "natural" order of the elements in this list.
     * The method works on a copy of the products list.
     */
    public String sortedListOfFurniture() {
@@ -190,8 +179,7 @@ public class Factory{
    }
    
     /**
-    * This method generates and returns the information of
-    * every element in the orders list of the factory, ordered
+    * This method generates and returns the information of every element in the orders list of the factory, ordered
     * by date, using the SortOrdersByDate class.
     * The method works on a copy of the orders list.
     */
@@ -208,8 +196,7 @@ public class Factory{
    }
    
     /**
-    * This method generates and returns the information of
-    * every element in the orders list of the factory, ordered
+    * This method generates and returns the information of every element in the orders list of the factory, ordered
     * by quantity, using the SortOrdersByQuantity class.
     * The method works on a copy of the orders list.
     */
@@ -224,5 +211,4 @@ public class Factory{
 	   }
 	   return sb.toString();
    }
-   
 }
