@@ -10,7 +10,7 @@ import java.util.Collections;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
- * @modifiedBy David Doblas Jiménez
+ * @modified  David Doblas Jiménez
  */
 public class Factory {
 
@@ -18,27 +18,28 @@ public class Factory {
     private final String NL = System.getProperty("line.separator");
 
     /**
-     * This atribute stores the list of materials
+     * This attribute stores the list of materials
      */
     private ArrayList<Material> materials;
 
     /**
-     * This atribute stores the list of colors
+     * This attribute stores the list of colors
      */
     private ArrayList<Color> colors;
 
     /**
-     * This atribute stores the list of products
+     * This attribute stores the list of products
      */
     private ArrayList<Furniture> furniture;
 
     /**
-     * This atribute stores the list of orders
+     * This attribute stores the list of orders
      */
     private ArrayList<Order> orders;
 
     /**
      * Constructor method
+     *
      */
     public Factory() {
         this.materials = new ArrayList<Material>();
@@ -160,13 +161,10 @@ public class Factory {
     }
 
     /**
-    * This method removes an Order object from the list orders.
-    * To do its task, this method has to use the appropriate
+    * This method removes an Order object from the list orders. To do its task, this method has to use the appropriate
     * method of ArrayList class.
-    * And to do that, it is necessary to redefine the equals
-    * method on class Order, to define whether two Order
-    * objects are equals (see description of equals method in
-    * class Order)
+    * And to do that, it is necessary to redefine the equals method on class Order, to define whether two Order
+    * objects are equals (see description of equals method in class Order)
     */
    public boolean removeOrder(Order order) throws FactoryException {
 	   boolean removed;
