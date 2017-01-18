@@ -7,20 +7,21 @@ import java.text.DecimalFormat;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
-public class Door extends FrontPart{
+public class Door extends FrontPart { 
 
    // The new line separator:
    private final String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the bed X dimension
+    * This attribute stores the bed X dimension
     */
    private double x;
 
    /**
-    * This atribute stores the bed Y dimension
+    * This attribute stores the bed Y dimension
     */
    private double y;
 
@@ -45,7 +46,7 @@ public class Door extends FrontPart{
    }
 
    /**
-    * Getter method of atribute x
+    * Getter method of attribute x
     * @return atribute x
     */
    public double getX() {
@@ -53,7 +54,7 @@ public class Door extends FrontPart{
    }
 
    /**
-    * Getter method of atribute y
+    * Getter method of attribute y
     * @return atribute y
     */
    public double getY() {
@@ -61,8 +62,7 @@ public class Door extends FrontPart{
    }
 
    /**
-    * This method calculates and returns the price of the
-    * Bed.
+    * This method calculates and returns the price of a bed object.
     *
     * The price of the Bed is calculated as:
     *   (its Area) x (price per cm2 of the material) x (price factor of the color)
@@ -75,11 +75,9 @@ public class Door extends FrontPart{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Door object.
+    * This method generates and returns an String with the information of the Door object.
     *
-    * Note that this method has to access to the Material
-    * and Color atributes of the class to get some information.
+    * Note that this method has to access to the Material and Color atributes of the class to get some information.
     */
    public String toString() {
       DecimalFormat myFormat1 = new DecimalFormat("#0.000");
