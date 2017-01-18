@@ -7,9 +7,10 @@ import java.text.DecimalFormat;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
-public class Color{
+public class Color {
 
    /**
     * The new line separator
@@ -17,12 +18,12 @@ public class Color{
    private final String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the material name
+    * This attribute stores the material name
     */
    private String name;
 
    /**
-    * This atribute stores the price factor of this color
+    * This attribute stores the price factor of this color
     */
    private Double priceFactor;
 
@@ -40,7 +41,7 @@ public class Color{
    }
 
    /**
-    * Getter method of atribute name
+    * Getter method of attribute name
     * @return atribute name
     */
    public String getName() {
@@ -48,7 +49,7 @@ public class Color{
    }
 
    /**
-    * Getter method of atribute priceFactor
+    * Getter method of attribute priceFactor
     * @return atribute priceFactor
     */
    public double getPriceFactor() {
@@ -56,8 +57,7 @@ public class Color{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Color object.
+    * This method generates and returns a String with the information of the Color object.
     */
    public String toString() {
       DecimalFormat myFormat = new DecimalFormat("#0.000");
@@ -74,7 +74,7 @@ public class Color{
    public boolean equals (Object o) {
 	   if (o instanceof Color) {
 		   Color tmpColor = (Color) o;
-		   return this.name.equals(tmpColor.getName());
+		   return this.getName().equals(tmpColor.getName());
 	   }
 	   else
 		   return false;
