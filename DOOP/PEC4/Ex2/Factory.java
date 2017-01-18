@@ -172,5 +172,4 @@ public class Factory {
 	   if (!removed) throw new FactoryException (FactoryException.ORDER_NOT_FOUND);
 	   return removed;     
    }
-
 }
