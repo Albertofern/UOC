@@ -11,8 +11,9 @@ import java.util.logging.Logger;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
- * @modifiedBy David Doblas Jiménez
+ * @modified David Doblas Jiménez
  */
+
 public class Main2 {
 
     // The new line separator:
@@ -186,11 +187,7 @@ public class Main2 {
         catch (FactoryException e) {
         	System.out.println("Exception: " + e);        	
         }
-//            if (myF.removeOrder(myOrder)) {
-//                System.out.println("Order object has been removed");
-//            } else {
-//                System.out.println("ERROR: Order object not found");
-//            }
+
         // Listing the remaining Order objects at list orders
         System.out.println("List of remaining orders (in order of introduction)");
         System.out.println("---------------------------------------------------");
@@ -209,13 +206,6 @@ public class Main2 {
         }
         catch (FactoryException e) {
         	System.out.println("Exception: " + e);        	
-        }
-//            if (myF.removeOrder(myOrder2)) {
-//                System.out.println("Order object has been removed");
-//            } else {
-//                System.out.println("ERROR: Order object not found");
-//            }
-   
+        } 
     }
-
 }
