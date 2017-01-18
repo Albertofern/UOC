@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 public class Main2 {
 
@@ -201,7 +202,5 @@ public class Main2 {
         } else {
             System.out.println("ERROR: Order object not found");
         }
-
     }
-
 }
