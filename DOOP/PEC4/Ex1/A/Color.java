@@ -7,9 +7,10 @@ import java.text.DecimalFormat;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
-public class Color{
+public class Color {
 
    /**
     * The new line separator
@@ -17,12 +18,12 @@ public class Color{
    private final String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the material name
+    * This attribute stores the material name
     */
    private String name;
 
    /**
-    * This atribute stores the price factor of this color
+    * This attribute stores the price factor of this color
     */
    private Double priceFactor;
 
@@ -40,7 +41,7 @@ public class Color{
    }
 
    /**
-    * Getter method of atribute name
+    * Getter method of attribute name
     * @return atribute name
     */
    public String getName() {
@@ -48,7 +49,7 @@ public class Color{
    }
 
    /**
-    * Getter method of atribute priceFactor
+    * Getter method of attribute priceFactor
     * @return atribute priceFactor
     */
    public double getPriceFactor() {
@@ -66,5 +67,4 @@ public class Color{
       sb.append("Price factor: " + myFormat.format(this.priceFactor) + NL);
       return sb.toString();
    }
-
 }
