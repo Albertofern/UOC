@@ -5,6 +5,7 @@
  * @author POO teaching staff
  * @version 1.0
  * @since Autumm 2016
+ * @modified David Doblas Jiménez
  */
 
 public class FactoryException extends Exception {
@@ -21,7 +22,6 @@ public class FactoryException extends Exception {
     * Constructor method
     */
    public FactoryException (String errorMessage) {
-      super (errorMessage);
+      super(errorMessage);
    } 
-
 }
