@@ -7,9 +7,10 @@ import java.text.DecimalFormat;
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
+ * @modified David Doblas Jiménez
  */
 
-public class Material{
+public class Material {
 
    /**
     * The new line separator
@@ -17,12 +18,12 @@ public class Material{
    private final String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the material name
+    * This attribute stores the material name
     */
    private String name;
 
    /**
-    * This atribute stores the price per cm2 of this material
+    * This attribute stores the price per cm2 of this material
     */
    private Double pricePerCm2;
 
@@ -40,7 +41,7 @@ public class Material{
    }
 
    /**
-    * Getter method of atribute name
+    * Getter method of attribute name
     * @return atribute name
     */
    public String getName() {
@@ -48,7 +49,7 @@ public class Material{
    }
 
    /**
-    * Getter method of atribute pricePerCm2
+    * Getter method of attribute pricePerCm2
     * @return atribute pricePerCm2
     */
    public double getPricePerCm2() {
@@ -56,8 +57,7 @@ public class Material{
    }
 
    /**
-    * This method generates and returns an String with
-    * the information of the Material object.
+    * This method generates and returns a String with the information of the Material object.
     */
    public String toString() {
       DecimalFormat myFormat = new DecimalFormat("#0.000");
@@ -66,5 +66,4 @@ public class Material{
       sb.append("Price per cm2: " + myFormat.format(this.pricePerCm2) + " euros" + NL);
       return sb.toString();
    }
-
 }
