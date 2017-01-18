@@ -5,10 +5,10 @@
  * @author POO teaching staff
  * @version 1.0
  * @since Autumn 2016
- * @modifiedBy David Doblas Jiménez
+ * @modified David Doblas Jiménez
  */
 
-public abstract class Furniture implements Comparable<Furniture>{
+public abstract class Furniture implements Comparable<Furniture> {
 
    /**
     * The new line separator
@@ -16,12 +16,12 @@ public abstract class Furniture implements Comparable<Furniture>{
    private String NL = System.getProperty("line.separator");
 
    /**
-    * This atribute stores the product identification code
+    * This attribute stores the product identification code
     */
    private String id;
 
    /**
-    * This atribute stores the product material object
+    * This attribute stores the product material object
     */
    private Material material;
    private Color color;
@@ -43,7 +43,7 @@ public abstract class Furniture implements Comparable<Furniture>{
    }
 
    /**
-    * Getter method of atribute id
+    * Getter method of attribute id
     * @return atribute id
     */
    public String getId() {
@@ -51,7 +51,7 @@ public abstract class Furniture implements Comparable<Furniture>{
    }
 
    /**
-    * Getter method of atribute material
+    * Getter method of attribute material
     * @return atribute material
     */
    public Material getMaterial() {
@@ -59,7 +59,7 @@ public abstract class Furniture implements Comparable<Furniture>{
    }
 
    /**
-    * Getter method of atribute color
+    * Getter method of attribute color
     * @return atribute color
     */
    public Color getColor() {
@@ -72,21 +72,17 @@ public abstract class Furniture implements Comparable<Furniture>{
    abstract double price();
 
    /**
-    * This method generates and returns an String with
-    * the product identification code.
+    * This method generates and returns a String with the product identification code.
     */
    public String toString() {
       return "Furniture id: " + this.id + NL;
    }
    
    /**
-    * This method will compare furniture objects
-    * based on their id
+    * This method will compare furniture objects based on their id
     */
    @Override  
    public int compareTo(Furniture f) {
       return ((this.id).compareTo(f.id));
    }
- 
-
 }
