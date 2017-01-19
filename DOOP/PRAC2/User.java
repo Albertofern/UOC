@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
 
+/**
+ * This class represents an user
+ *
+ * @author POO teaching staff
+ * @version 1.0
+ * @since Autumn 2016
+ * @modified David Doblas Jiménez
+ */
+
 public class User implements CompetitionListener {
     private Platform platform;
     private String username;
