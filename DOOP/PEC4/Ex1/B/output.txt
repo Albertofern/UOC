@@ -1,0 +1,5 @@
+Name of Student: Ra.one
+Roll No. of Student: 12
+Marks of Subject 1: 93
+Marks of Subject 2: 84
+Percentage: 88.0%
