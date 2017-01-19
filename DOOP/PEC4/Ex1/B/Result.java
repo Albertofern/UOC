@@ -35,16 +35,13 @@ public class Result extends Student implements IExam{
 	    sb.append("Roll No. of Student: " + this.getRollNo() + NL);
 	    sb.append("Marks of Subject 1: " + this.getMark1() + NL);
 	    sb.append("Marks of Subject 2: " + this.getMark2());
-	    
 	    System.out.println(sb.toString());
 	}
 	
 	
-	@Override
 	public void percent_cal() {
 		StringBuilder sb = new StringBuilder();
-	    sb.append("Percentage: " + (((float)this.getMark1() + this.getMark2()) * 100/200) + "%");
-	    System.out.println(sb.toString());
+	  sb.append("Percentage: " + (((float)this.getMark1() + this.getMark2()) * 100/200) + "%");
+	  System.out.println(sb.toString());
 	}
-
 }
