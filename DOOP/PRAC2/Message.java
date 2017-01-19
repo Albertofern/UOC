@@ -60,7 +60,7 @@ public class Message {
         sb.append("from: " + this.from.getFullName() + " <" + this.from.getUserName() + ">, ");
         sb.append("to: " + this.to.getFullName() + " <" + this.to.getUserName() + ">, ");
         sb.append("subject: " + this.subject + ", ");
-        sb.append("status: " + this.status + "}");
+        sb.append("status: " + this.status.name() + "}");
         return sb.toString();
     }
 
