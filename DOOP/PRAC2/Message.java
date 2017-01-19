@@ -36,7 +36,6 @@ public class Message {
         this.status = MessageStatus.PENDING;
     }
 
-
     public void read() {
        /*
         * PR2 Ex 1.3: Mark message as read
@@ -62,9 +61,7 @@ public class Message {
         sb.append("to: " + this.to.getFullName() + " <" + this.to.getUserName() + ">, ");
         sb.append("subject: " + this.subject + ", ");
         sb.append("status: " + this.status + "}");
-        
         return sb.toString();
-
     }
 
     public boolean equals(Object obj) {
