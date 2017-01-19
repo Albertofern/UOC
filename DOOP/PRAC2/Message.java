@@ -5,6 +5,15 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class represents a message
+ *
+ * @author POO teaching staff
+ * @version 1.0
+ * @since Autumn 2016
+ * @modified David Doblas Jiménez
+ */
+
 public class Message {
 
     private String subject;
