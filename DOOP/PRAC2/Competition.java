@@ -2,6 +2,15 @@ package edu.uoc.dpoo;
 
 import java.util.List;
 
+/**
+ * This class represents a message
+ *
+ * @author POO teaching staff
+ * @version 1.0
+ * @since Autumn 2016
+ * @modified David Doblas Jiménez
+ */
+
 public class Competition {
     private Platform platform;
     private Integer id;
