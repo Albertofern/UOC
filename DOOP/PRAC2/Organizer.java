@@ -2,6 +2,7 @@ package edu.uoc.dpoo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 /**
  * This class represents a message
