@@ -3,6 +3,15 @@ package edu.uoc.dpoo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents a message
+ *
+ * @author POO teaching staff
+ * @version 1.0
+ * @since Autumn 2016
+ * @modified David Doblas Jiménez
+ */
+
 public class Organizer extends User {
     private List<Competition> competitions;
     
