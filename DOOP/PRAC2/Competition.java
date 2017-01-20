@@ -19,6 +19,11 @@ public class Competition {
     private Boolean isActive;
     private Organizer owner;
     private List<Submission> submissions;
+    
+    /**
+     * PR2 Ex 2.2: List of observers
+    */
+    List<CompetitionListener> listeners = new ArrayList<CompetitionListener>();
       
     public Competition(Platform platform, Organizer owner, String title, float target) {
         
@@ -65,6 +70,9 @@ public class Competition {
     }
         
     public void addListener(CompetitionListener listener) {
-        
+        /**
+         * PR2 Ex 2.2: Add a new observer
+        */
+        this.listeners.add(listener);
     }
 }
