@@ -22,11 +22,7 @@ public class User implements CompetitionListener {
     private List<Message> inbox;
     private List<Message> outbox;
     private List<Submission> submissions;
-    
-    /**
-     * This atribute stores the list of non-read messages
-     */
-    private ArrayList<Message> nonread;
+
 
     public User (Platform platform, String username, String password, String fullName) {
         /**
@@ -126,6 +122,8 @@ public class User implements CompetitionListener {
         /**
          * PR2 Ex 1.3: Get unread messages
         */
+        //This atribute stores the list of non-read messages
+        ArrayList<Message> nonread = new ArrayList<Message>();
         for (Iterator<Message> it = inbox.iterator(); it.hasNext();) {
             Message m = (Message) it.next();
             if (m.getStatus().equals(MessageStatus.PENDING)) {
