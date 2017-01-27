@@ -118,7 +118,7 @@ public class Order {
       sb.append(this.furniture.toString());
       sb.append("Quantity: " + this.quantity + " units" + NL);
       sb.append("Total amount: " + myFormat.format(this.totalAmount()) + " euros" + NL);
-	return sb.toString();
+      return sb.toString();
    }
 
    /**
