@@ -8,9 +8,10 @@
  */
 
 public interface IExam {
-	/**
-	 * To be implemented in the class result
-	 */
-	public void percent_cal();
+  /**
+   * To be implemented in the class result
+   */
+  public void percent_cal();
+
 }
 
