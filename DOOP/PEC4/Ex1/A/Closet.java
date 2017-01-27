@@ -52,7 +52,7 @@ public class Closet extends Furniture {
     */
    public Closet(String id, Material material, Color color, double w, double h, double d) {
       super(id,material,color);
-	    this.width = w;
+      this.width = w;
       this.height = h;
       this.depth = d;
       this.frontparts = new ArrayList<FrontPart>();
