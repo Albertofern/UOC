@@ -91,6 +91,6 @@ public class Door extends FrontPart {
       sb.append("      Y: " + myFormat2.format(this.y) + " cm" + NL);
       sb.append("      Color price factor: " + myFormat1.format(this.getColor().getPriceFactor()) + " euros" + NL);
       sb.append("    FrontPart price: " + myFormat2.format(this.price()) + " euros" + NL);
-	    return sb.toString();
+      return sb.toString();
    }
 }
