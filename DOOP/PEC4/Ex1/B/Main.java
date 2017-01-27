@@ -16,13 +16,13 @@ class Main {
    * @param args arguments
    */
   public static void main(String args[]) {
-    /* Create a result 
+    // Create a result 
     Result R = new Result("Ra.one",12,93,84);
     
-    /* display a result
+    // display a result
     R.display();
 
-    /* calculate a result
+    // calculate a result
     R.percent_cal();
   }
 }
