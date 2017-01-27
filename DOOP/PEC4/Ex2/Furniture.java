@@ -21,9 +21,13 @@ public abstract class Furniture {
    private String id;
 
    /**
-    * This attribute stores the product material object
+    * This attribute stores the material
     */
    private Material material;
+   
+   /**
+    * This attribute stores the color
+    */   
    private Color color;
 
    /**
