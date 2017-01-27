@@ -53,33 +53,33 @@ public class Factory {
     * This method adds an element to the list of materials
     * @param m
     */
-	public void add(Material m) {
-		this.materials.add(m);
-	}
+   public void add(Material m) {
+     this.materials.add(m);
+   }
 
   /**
    * This method adds an element to the list of colors
    * @param m
    */
- public void add(Color c) {
-   this.colors.add(c);
- }
+  public void add(Color c) {
+    this.colors.add(c);
+  }
 
    /**
     * This method adds an element to the list of furniture
     * @param p
     */
-	public void add(Furniture f) {
-		this.furniture.add(f);
-	}
+   public void add(Furniture f) {
+     this.furniture.add(f);
+   }
 
    /**
     * This method adds an element to the list of orders
     * @param o
     */
-	public void add(Order o) {
-		this.orders.add(o);
-	}
+   public void add(Order o) {
+     this.orders.add(o);
+   }
 
    /**
     * This method generates and returns the information of every element in the materials list of the factory, in
@@ -201,14 +201,14 @@ public class Factory {
     * The method works on a copy of the orders list.
     */
    public String listOrdersSortedByQuantity() {
-	   ArrayList<Order> numOrders;
-	   numOrders = new ArrayList<Order>(this.orders);
-	   Collections.sort(numOrders, new SortOrdersByQuantity());
-	   StringBuilder sb = new StringBuilder();
-	   for (Iterator<Order> it = numOrders.iterator(); it.hasNext();) {
-		   Order o = it.next();
-		   sb.append(o.toString() + NL);
-	   }
-	   return sb.toString();
+      ArrayList<Order> numOrders;
+      numOrders = new ArrayList<Order>(this.orders);
+      Collections.sort(numOrders, new SortOrdersByQuantity());
+      StringBuilder sb = new StringBuilder();
+      for (Iterator<Order> it = numOrders.iterator(); it.hasNext();) {
+	  Order o = it.next();
+	  sb.append(o.toString() + NL);
+      }
+      return sb.toString();
    }
 }
